@@ -8,7 +8,49 @@
     <link rel="stylesheet" href="assets/style/style.css">
 </head>
 <body>
-
+<div class="atm-wrap">
+    <div class="block-btn">
+        <button type="button" class="btn btn-1" id="showBalance">Show Balance Card</button>
+        <button type="button" class="btn btn-2" id="addMoney">Card Add Money</button>
+        <button type="button" class="btn btn-3" id="withdrawCash">Withdraw Cash</button>
+    </div>
+    <div class="screen">
+        <p class="field-output"></p>
+        <input type="text" class="field-input d-none">
+    </div>
+    <div class="block-btn">
+        <button type="button" class="btn btn-4"></button>
+        <button type="button" class="btn btn-5"></button>
+        <button type="button" class="btn btn-6"></button>
+    </div>
+</div>
+<div class="block-btn-numbers-control">
+    <div class="block-btn-numbers">
+        <div>
+            <button type="button" class="btn-number disabled" value="1">1</button>
+            <button type="button" class="btn-number disabled" value="2">2</button>
+            <button type="button" class="btn-number disabled" value="3">3</button>
+        </div>
+        <div>
+            <button type="button" class="btn-number disabled" value="4">4</button>
+            <button type="button" class="btn-number disabled" value="5">5</button>
+            <button type="button" class="btn-number disabled" value="6">6</button>
+        </div>
+        <div>
+            <button type="button" class="btn-number disabled" value="7">7</button>
+            <button type="button" class="btn-number disabled" value="8">8</button>
+            <button type="button" class="btn-number disabled" value="9">9</button>
+        </div>
+        <div>
+            <button type="button" class="btn-number disabled" value="0">0</button>
+        </div>
+    </div>
+    <div class="block-btn-control">
+        <button type="button" class="btn-control disabled" id="cancel">Cancel</button>
+        <button type="button" class="btn-control disabled" id="clear">Clear</button>
+        <button type="button" class="btn-control disabled" id="enter">Enter</button>
+    </div>
+</div>
 <script src="assets/js/main.js">
 </script>
 </body>
