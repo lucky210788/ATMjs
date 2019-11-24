@@ -7,7 +7,7 @@ class Atm {
             200: 0,
             100: 0,
             50: 0
-        }
+        };
     }
 
     showBalance() {
@@ -27,8 +27,7 @@ class Atm {
 
         for (let i = 0; i < moneyList.length; i++) {
             if (validBankNote.indexOf(moneyList[i]) === -1) {
-                console.log('Have fake banknotes');
-                return false
+                return 'Have fake banknotes';
             }
         }
 
@@ -41,9 +40,10 @@ class Atm {
             for (let i = 0; i < moneyList.length; i++) {
                 this.moneyVault[moneyList[i]] += 1;
             }
-            console.log(`ATM replenished in the amount of ${sum}`);
+            let a = `ATM replenished in the amount of ${sum}`;
+            return a;
         } else {
-            console.log('The amount of the bank notes differs from the amount needed to replenish it');
+            return 'The amount of the bank notes differs from the amount needed to replenish it';
         }
     }
 
@@ -164,26 +164,12 @@ class Card {
 let atm = new Atm();
 let creditCard = new Card();
 
-creditCard.addMoney(5300);
-
-atm.showBalance();
-// atm.addMoney(1000, [500, 500]);
-// atm.showBalance();
-atm.addMoney(1500, [1000, 200, 200, 100]);
-// atm.addMoney(1500, [1000, 200, 200, 100]);
-atm.addMoney(500, [50, 50, 200, 100, 100]);
-atm.showBalance();
-// atm.withdrawCash(creditCard, 600);
-// atm.withdrawCash(creditCard, 550);
-// atm.withdrawCash(creditCard, 1310);
-// atm.withdrawCash(creditCard, 600);
-// atm.addMoney(1000, [100, 500, 50, 50, 200, 100]);
-
 const screen = document.querySelector('.field-output');
 const fieldInput = document.querySelector('.field-input');
 let textScreen = '';
 const btnShowBalance = document.querySelector('#showBalance');
 const btnAddMoney = document.querySelector('#addMoney');
+const btnAddMoneyATM = document.querySelector('#atmAddMoney');
 const btnWithdrawCash = document.querySelector('#withdrawCash');
 const btnEnter = document.querySelector('#enter');
 const btnCancel = document.querySelector('#cancel');
@@ -286,3 +272,103 @@ function buttonBlock(state) {
         btns[i].disabled = state;
     }
 }
+
+btnAddMoneyATM.addEventListener('click', function () {
+    const btnEnterATM = document.querySelector('#enterATM');
+    const btnCancelATM = document.querySelector('#cancelATM');
+    const btnClearATM = document.querySelector('#clearATM');
+    const btn50 = document.querySelector('#banknote50');
+    const btn100 = document.querySelector('#banknote100');
+    const btn200 = document.querySelector('#banknote200');
+    const btn500 = document.querySelector('#banknote500');
+    const btn1000 = document.querySelector('#banknote1000');
+    const btnClearBanknote = document.querySelector('#clearBanknote');
+    const btnEnterBanknote = document.querySelector('#enterBanknote');
+    const btnBanknoteControl = document.querySelector('.block-btn-banknote-control');
+    const fieldForBanknote = document.querySelector('.for-banknote');
+    const btns1 = document.querySelector('.block-btn-control');
+    const btns2 = document.querySelector('.block-btn-control-atm');
+
+    btns1.classList.add('d-none');
+    btns2.classList.remove('d-none');
+    let tempVal = '';
+    let tempBanknote = [];
+    textScreen = `What amount to deposit on ATM`;
+    screen.innerHTML = textScreen;
+    fieldInput.classList.remove('d-none');
+    buttonBlock(false);
+
+    let isButton = function (e) {
+        if (e.target.tagName === 'BUTTON') {
+            tempVal += e.target.value;
+            fieldInput.value = tempVal;
+        }
+    };
+
+    blockBtnNumbers.addEventListener('click', isButton, false);
+
+    btnEnterATM.addEventListener('click', function () {
+        textScreen = `what bills`;
+        blockBtnNumbers.removeEventListener('click', isButton, false);
+        fieldInput.value = '';
+        screen.innerHTML = textScreen;
+        fieldInput.classList.add('d-none');
+        buttonBlock(true);
+        btnBanknoteControl.classList.remove('d-none');
+        btns1.classList.remove('d-none');
+        btns2.classList.add('d-none');
+    });
+
+    btnClearATM.addEventListener('click', function () {
+        tempVal = '';
+        fieldInput.value = tempVal;
+    });
+
+    btnCancelATM.addEventListener('click', function () {
+        tempVal = '';
+        blockBtnNumbers.removeEventListener('click', isButton, false);
+        fieldInput.value = '';
+        screen.innerHTML = '';
+        fieldInput.classList.add('d-none');
+        buttonBlock(true);
+    });
+
+    btn50.addEventListener('click', function () {
+        tempBanknote.push(50);
+        fieldForBanknote.innerHTML = tempBanknote;
+    });
+
+    btn100.addEventListener('click', function () {
+        tempBanknote.push(100);
+        fieldForBanknote.innerHTML = tempBanknote;
+    });
+
+    btn200.addEventListener('click', function () {
+        tempBanknote.push(200);
+        fieldForBanknote.innerHTML = tempBanknote;
+    });
+
+    btn500.addEventListener('click', function () {
+        tempBanknote.push(500);
+        fieldForBanknote.innerHTML = tempBanknote;
+    });
+
+    btn1000.addEventListener('click', function () {
+        tempBanknote.push(1000);
+        fieldForBanknote.innerHTML = tempBanknote;
+    });
+
+    btnClearBanknote.addEventListener('click', function () {
+        tempBanknote = [];
+        fieldForBanknote.innerHTML = tempBanknote;
+    });
+
+    btnEnterBanknote.addEventListener('click', function () {
+        fieldForBanknote.innerHTML = tempBanknote;
+        screen.innerHTML = atm.addMoney(Number(tempVal), tempBanknote);
+        tempVal = '';
+        tempBanknote = [];
+        fieldForBanknote.innerHTML = '';
+        btnBanknoteControl.classList.add('d-none');
+    });
+});

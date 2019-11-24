@@ -11,46 +11,68 @@
 <div class="atm-wrap">
     <div class="block-btn">
         <button type="button" class="btn btn-1" id="showBalance">Show Balance Card</button>
-        <button type="button" class="btn btn-2" id="addMoney">Card Add Money</button>
         <button type="button" class="btn btn-3" id="withdrawCash">Withdraw Cash</button>
     </div>
     <div class="screen">
         <p class="field-output"></p>
         <input type="text" class="field-input d-none">
+        <p class="for-banknote"></p>
     </div>
     <div class="block-btn">
-        <button type="button" class="btn btn-4"></button>
-        <button type="button" class="btn btn-5"></button>
-        <button type="button" class="btn btn-6"></button>
+        <button type="button" class="btn btn-4" id="atmAddMoney">ATM Add Money</button>
+        <button type="button" class="btn btn-2" id="addMoney">Card Add Money</button>
     </div>
 </div>
-<div class="block-btn-numbers-control">
-    <div class="block-btn-numbers">
-        <div>
-            <button type="button" class="btn-number disabled" value="1">1</button>
-            <button type="button" class="btn-number disabled" value="2">2</button>
-            <button type="button" class="btn-number disabled" value="3">3</button>
+
+<div class="btn-main">
+    <div class="block-btn-numbers-control">
+        <div class="block-btn-numbers">
+            <div>
+                <button type="button" class="btn-number disabled" value="1">1</button>
+                <button type="button" class="btn-number disabled" value="2">2</button>
+                <button type="button" class="btn-number disabled" value="3">3</button>
+            </div>
+            <div>
+                <button type="button" class="btn-number disabled" value="4">4</button>
+                <button type="button" class="btn-number disabled" value="5">5</button>
+                <button type="button" class="btn-number disabled" value="6">6</button>
+            </div>
+            <div>
+                <button type="button" class="btn-number disabled" value="7">7</button>
+                <button type="button" class="btn-number disabled" value="8">8</button>
+                <button type="button" class="btn-number disabled" value="9">9</button>
+            </div>
+            <div>
+                <button type="button" class="btn-number disabled" value="0">0</button>
+            </div>
         </div>
-        <div>
-            <button type="button" class="btn-number disabled" value="4">4</button>
-            <button type="button" class="btn-number disabled" value="5">5</button>
-            <button type="button" class="btn-number disabled" value="6">6</button>
+        <div class="block-btn-control block-main-control">
+            <button type="button" class="btn-control disabled" id="cancel">Cancel</button>
+            <button type="button" class="btn-control disabled" id="clear">Clear</button>
+            <button type="button" class="btn-control disabled" id="enter">Enter</button>
         </div>
-        <div>
-            <button type="button" class="btn-number disabled" value="7">7</button>
-            <button type="button" class="btn-number disabled" value="8">8</button>
-            <button type="button" class="btn-number disabled" value="9">9</button>
-        </div>
-        <div>
-            <button type="button" class="btn-number disabled" value="0">0</button>
+        <div class="block-btn-control-atm block-main-control d-none">
+            <button type="button" class="btn-control disabled" id="cancelATM">Cancel</button>
+            <button type="button" class="btn-control disabled" id="clearATM">Clear</button>
+            <button type="button" class="btn-control disabled" id="enterATM">Enter</button>
         </div>
     </div>
-    <div class="block-btn-control">
-        <button type="button" class="btn-control disabled" id="cancel">Cancel</button>
-        <button type="button" class="btn-control disabled" id="clear">Clear</button>
-        <button type="button" class="btn-control disabled" id="enter">Enter</button>
+
+    <div class="block-btn-banknote-control d-none">
+        <div class="block-btn-numbers">
+            <button type="button" class="btn-number btn-banknote" value="50" id="banknote50">50</button>
+            <button type="button" class="btn-number btn-banknote" value="100" id="banknote100">100</button>
+            <button type="button" class="btn-number btn-banknote" value="200" id="banknote200">200</button>
+            <button type="button" class="btn-number btn-banknote" value="500" id="banknote500">500</button>
+            <button type="button" class="btn-number btn-banknote" value="1000" id="banknote1000">1000</button>
+        </div>
+        <div class="block-btn-control">
+            <button type="button" class="btn-control " id="clearBanknote">Clear</button>
+            <button type="button" class="btn-control " id="enterBanknote">Enter</button>
+        </div>
     </div>
 </div>
+
 <script src="assets/js/main.js">
 </script>
 </body>

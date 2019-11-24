@@ -65,7 +65,7 @@
     align-items: center;
 }
 
-.block-btn-numbers >div {
+.block-btn-numbers > div {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -74,21 +74,22 @@
     align-items: center;
 }
 
-.btn-number{
+.btn-number {
     width: 50px;
     height: 50px;
     margin: 5px;
     font-size: 20px;
 }
 
-.btn-control{
+.btn-control {
     width: 100px;
     height: 50px;
     margin: 5px;
     font-size: 20px;
 }
 
-.block-btn-control{
+.block-main-control,
+.block-btn-control {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -98,7 +99,7 @@
     flex-direction: column;
 }
 
-.block-btn-numbers-control{
+.block-btn-numbers-control {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -107,14 +108,29 @@
     justify-content: center;
 }
 
-.field-input{
+.field-input {
     width: 50%;
 }
 
-.field-output{
+.field-output {
     text-align: center;
 }
 
-.d-none{
+.btn-main {
+    display: flex;
+    justify-content: center;
+}
+
+.block-btn-banknote-control {
+    margin: 0 20px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.btn-banknote {
+    width: 67px;
+}
+
+.d-none {
     display: none;
 }
